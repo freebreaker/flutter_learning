@@ -51,31 +51,29 @@ class _FrontPage extends State<FrontPage> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return new DefaultTabController(
-      length: 4,
-      child: new Scaffold(
-        appBar: new AppBar(
-          title: searchBar(),
-          elevation: 0,
-          bottom: new TabBar(
-            tabs: <Widget>[
-              new Tab(text: "关注"),
-              new Tab(text: "推荐"),
-              new Tab(text: "热榜"),
-              new Tab(text: "视频"),
-            ],
-            controller: _tabController,
-          ),
-        ),
-        body: new TabBarView(
-          controller: _tabController,
-          children: <Widget>[
-            FrontPageList(),
-            new Center(child: new Text('船')),
-            new Center(child: new Text('巴士')),
-            new Center(child: new Text('火车')),
-          ],
-        ),
-      ),
-    );
+        length: 4,
+        child: new Scaffold(
+            appBar: new AppBar(
+              title: searchBar(),
+              elevation: 0,
+              bottom: new TabBar(
+                tabs: <Widget>[
+                  new Tab(text: "关注"),
+                  new Tab(text: "推荐"),
+                  new Tab(text: "热榜"),
+                  new Tab(text: "视频"),
+                ],
+                controller: _tabController,
+              ),
+            ),
+            body: TabBarView(
+              controller: _tabController,
+              children: <Widget>[
+                FrontPageList(),
+                new Center(child: new Text('船')),
+                new Center(child: new Text('巴士')),
+                new Center(child: new Text('火车')),
+              ],
+            )));
   }
 }
