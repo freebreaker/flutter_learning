@@ -1,14 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:myflutterapp/model/recommend.dart';
 
 class FrontPageListItem extends StatelessWidget {
-  
   final Recommend recommend;
 
-  const FrontPageListItem({Key key , this.recommend}):super(key:key);
+  const FrontPageListItem({Key key, this.recommend}) : super(key: key);
 
-    Widget infoItem(IconData icon, String info) {
+  Widget infoItem(IconData icon, String info) {
     return Row(
       children: <Widget>[
         Icon(
@@ -27,77 +25,47 @@ class FrontPageListItem extends StatelessWidget {
     );
   }
 
-    @override
+  @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10.0),
-      color: Colors.white,
+        child: Card(
+      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            recommend.target.question.title,
-            style: TextStyle(
-              fontSize: 20.0,
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
+          ListTile(
+            leading: Icon(Icons.question_answer),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+            child: Text(
+              recommend.target.question.title,
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-          SizedBox(
-            height: 8.0,
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              CircleAvatar(
-                radius: 15.0,
-                // backgroundImage: CachedNetworkImageProvider(
-                //     recommend.target.author.avatar_url),
-              ),
-              SizedBox(
-                width: 10.0,
-              ),
-              Text(
-                this.recommend.target.author.name,
-                style: TextStyle(fontSize: 15.0),
-              ),
-              SizedBox(
-                width: 10.0,
-              ),
-              Text(
-                this.recommend.target.author.headline,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 15.0,
-                  color: Colors.grey,
+          ButtonTheme.bar(
+            // make buttons use the appropriate styles for cards
+            child: ButtonBar(
+              children: <Widget>[
+                FlatButton(
+                  child: infoItem(Icons.thumb_up,
+                      this.recommend.target.voteupCount.toString()),
+                  onPressed: () {/* ... */},
                 ),
-              ),
-            ],
+                FlatButton(
+                  child: infoItem(Icons.chat_bubble_outline,
+                      this.recommend.target.commentCount.toString()),
+                  onPressed: () {/* ... */},
+                ),
+              ],
+            ),
           ),
-          SizedBox(
-            height: 8.0,
-          ),
-          Text(
-            this.recommend.target.excerpt,
-            style: TextStyle(fontSize: 16, color: Colors.black87),
-          ),
-          SizedBox(
-            height: 8.0,
-          ),
-          Row(
-            children: <Widget>[
-              infoItem(Icons.navigation,
-                  this.recommend.target.voteupCount.toString()),
-              SizedBox(
-                width: 10.0,
-              ),
-              infoItem(Icons.chat_bubble_outline,
-                  this.recommend.target.commentCount.toString()),
-            ],
-          )
         ],
       ),
-    );
+    ));
   }
-
 }

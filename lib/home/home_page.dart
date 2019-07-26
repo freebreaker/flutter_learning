@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import "package:myflutterapp/page/frontPage/front_page.dart";
-import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
+// import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:circular_bottom_navigation/tab_item.dart';
+import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -39,8 +40,8 @@ class _HomePageState extends State<HomePage> {
     new TabItem(Icons.notifications, "Notifications", Colors.cyan),
   ]);
 
-  CircularBottomNavigationController _navigationController =
-      CircularBottomNavigationController(tabIndex);
+  // CircularBottomNavigationController _navigationController =
+  //     CircularBottomNavigationController(tabIndex);
 
   // Icon getTabIcon(int index) {
   //   if (index == tabIndex) {
@@ -53,7 +54,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Colors.grey[200],
         body: IndexedStack(
           children: <Widget>[
             Center(
@@ -72,13 +72,18 @@ class _HomePageState extends State<HomePage> {
           index: tabIndex,
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: CircularBottomNavigation(
-          tabItems,
-          controller: _navigationController,
-          selectedCallback: (int selectedPos) {
-            print("clicked on $selectedPos");
+        bottomNavigationBar: FancyBottomNavigation(
+          circleColor: Colors.blue,
+          activeIconColor: Colors.white,
+          inactiveIconColor: Colors.blue,
+          tabs: [
+            TabData(iconData: Icons.home, title: "Home"),
+            TabData(iconData: Icons.search, title: "Search"),
+            TabData(iconData: Icons.shopping_cart, title: "Basket")
+          ],
+          onTabChangedListener: (position) {
             setState(() {
-              tabIndex = selectedPos;
+              tabIndex = position;
             });
           },
         ));

@@ -8,8 +8,6 @@ class FrontPageList extends StatefulWidget {
   _FrontPageList createState() => _FrontPageList();
 }
 
-
-
 class _FrontPageList extends State<FrontPageList> {
   List<Recommend> modules = [];
 
@@ -89,12 +87,14 @@ class _FrontPageList extends State<FrontPageList> {
   }
 
   Widget buildModule(BuildContext context, Recommend module) {
-    return FrontPageListItem(recommend: module,);
+    return FrontPageListItem(
+      recommend: module,
+    );
   }
 
   Widget _buildProgressIndicator() {
-    print("page:"+page.toString());
-    if(page<3) {
+    print("page:" + page.toString());
+    if (page < 3) {
       return new Padding(
         padding: const EdgeInsets.all(18.0),
         child: new Center(
@@ -104,7 +104,7 @@ class _FrontPageList extends State<FrontPageList> {
           ),
         ),
       );
-    } else{
+    } else {
       return Text("没有更多了");
     }
   }

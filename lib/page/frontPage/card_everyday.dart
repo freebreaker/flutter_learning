@@ -15,7 +15,7 @@ class _CardEveryday extends State<CardEveryday> {
   Widget build(BuildContext context) {
     return Container(
       child: Card(
-        margin: EdgeInsets.all(18),
+        margin: EdgeInsets.fromLTRB(18, 18, 18, 25),
         // color: Colors.redAccent[200],
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -25,18 +25,23 @@ class _CardEveryday extends State<CardEveryday> {
               title: Text("2019/7/24"),
               // subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(widget.content),
+              ],
+            ),
             ButtonTheme.bar(
               // make buttons use the appropriate styles for cards
               child: ButtonBar(
                 children: <Widget>[
                   FlatButton(
-                    child: Text('BUY TICKETS'),
+                    child: Text(
+                      widget.author,
+                      style: TextStyle(color: Colors.black),
+                    ),
                     onPressed: () {/* ... */},
-                  ),
-                  FlatButton(
-                    child: Text('LISTEN'),
-                    onPressed: () {/* ... */},
-                  ),
+                  )
                 ],
               ),
             ),
