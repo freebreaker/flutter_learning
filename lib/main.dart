@@ -138,6 +138,11 @@ class _MyHomePageState extends State<MyHomePage> {
 class NewRouter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    var args = ModalRoute.of(context).settings.arguments;
+
+    print(args);
+
     return Scaffold(
       appBar: AppBar(
         title: Text("123"),

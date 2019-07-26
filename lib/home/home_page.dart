@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import "package:myflutterapp/page/frontPage/front_page.dart";
 // import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
-import 'package:circular_bottom_navigation/tab_item.dart';
+// import 'package:circular_bottom_navigation/tab_item.dart';
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 
 class HomePage extends StatefulWidget {
@@ -33,12 +33,12 @@ class _HomePageState extends State<HomePage> {
   //   Icon(Icons.person, size: 25.0, color: Colors.blue),
   // ];
 
-  List<TabItem> tabItems = List.of([
-    new TabItem(Icons.home, "首页", Colors.blue),
-    new TabItem(Icons.search, "Search", Colors.orange),
-    new TabItem(Icons.layers, "Reports", Colors.red),
-    new TabItem(Icons.notifications, "Notifications", Colors.cyan),
-  ]);
+  // List<TabItem> tabItems = List.of([
+  //   new TabItem(Icons.home, "首页", Colors.blue),
+  //   new TabItem(Icons.search, "Search", Colors.orange),
+  //   new TabItem(Icons.layers, "Reports", Colors.red),
+  //   new TabItem(Icons.notifications, "Notifications", Colors.cyan),
+  // ]);
 
   // CircularBottomNavigationController _navigationController =
   //     CircularBottomNavigationController(tabIndex);

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myflutterapp/model/recommend.dart';
 
 class FrontPageListItem extends StatelessWidget {
+
   final Recommend recommend;
 
   const FrontPageListItem({Key key, this.recommend}) : super(key: key);
@@ -36,14 +37,21 @@ class FrontPageListItem extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.question_answer),
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-            child: Text(
-              recommend.target.question.title,
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
+          FlatButton(
+            onPressed: (){
+              Navigator.of(context).pushNamed("new_page", arguments: {
+                "title":this.recommend.target.question.title,
+              });
+            },
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+              child: Text(
+                recommend.target.question.title,
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
